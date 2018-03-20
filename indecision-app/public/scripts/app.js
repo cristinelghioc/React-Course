@@ -4,7 +4,8 @@ console.log('App.js is running');
 
 var indecision = {
     title: 'Indecision App',
-    subtitle: 'This is the content.'
+    subtitle: 'This is the content.',
+    options: ['One', 'Two']
 };
 
 var template = React.createElement(
@@ -15,18 +16,48 @@ var template = React.createElement(
         null,
         indecision.title
     ),
-    React.createElement(
+    indecision.subtitle && React.createElement(
         'p',
         null,
         indecision.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        indecision.options.length > 0 ? 'Here are your options' : 'No options'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'Item'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item'
+        )
     )
 );
 
 var user = {
     name: 'Cristinel',
     age: 31,
-    location: 'Brasov'
+    location: 'Berlin'
 };
+
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location: ',
+            location
+        );
+    }
+}
 
 var templateTwo = React.createElement(
     'div',
@@ -34,20 +65,15 @@ var templateTwo = React.createElement(
     React.createElement(
         'h1',
         null,
-        user.name
+        user.name ? user.name : 'Anonymous'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
         'Age: ',
         user.age
     ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        user.location
-    )
+    getLocation(user.location)
 );
 var appRoot = document.getElementById('app');
 
