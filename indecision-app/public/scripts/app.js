@@ -39,6 +39,11 @@ var template = React.createElement(
             null,
             'Item'
         )
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Test'
     )
 );
 
