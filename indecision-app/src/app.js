@@ -1,25 +1,24 @@
 console.log('App.js is running');
 
-var indecision = {
+const app = {
     title: 'Indecision App',
     subtitle: 'This is the content.',
     options: ['One', 'Two']
 };
 
-var template = (
+const template = (
     <div>
-        <h1>{indecision.title}</h1>
-        {indecision.subtitle && <p>{indecision.subtitle}</p>}
-        <p>{indecision.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+        <h1>{app.title}</h1>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
         <ol>
             <li>Item</li>
             <li>Item</li>
         </ol>
-        <p>Test</p>
     </div>
 );
 
-var user = {
+const user = {
     name: 'Cristinel',
     age: 31,
     location: 'Berlin'
@@ -31,7 +30,7 @@ function getLocation(location) {
     }
 }
 
-var templateTwo = (
+const templateTwo = (
     <div>
         <h1>{user.name ? user.name : 'Anonymous'}</h1>
         {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
